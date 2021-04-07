@@ -55,17 +55,38 @@
       ];
 
       const series = this.catalogueSeries();
+      const cancelButton = this.cancelButton();
+      const validateButton = this.validateButton();
 
       return (
         <div className="App">
           <div>
             <p>Consulter la méthode cancelButton. En vous basant sur le même modèle, remplissez la méthode
               validateButton</p>
+            {cancelButton}
             <p>Appeler la fonction validateButton pour générer le bouton en dessous de ce paragraphe</p>
+            {validateButton}
             
             <p>{personne.name}, {personne.age}, {personne.job.name}, {personne.job.since} </p>
-            <p>{panierDeCourses.name}Afficher toutes les propriétés du panier de courses</p>
+            <div>
+              <p>Afficher toutes les propriétés de panier de courses</p>
+              {panierDeCourses.map((courses, i) =>(
+                <p key={i}>
+                  {courses.name}, {courses.type}
+                </p>
+              ))}
+            </div>
+
             <p>Afficher toutes les propriétés du catalogue de séries</p>
+            <div>
+              {series.map((catalogue, i)=>(
+                <p key={i}>
+                  {catalogue.name}, {catalogue.episodes}, {catalogue.note}
+                </p>
+              ))}
+            </div>
+
+            
           </div>
         </div>
       )

@@ -90,6 +90,7 @@
             Après avoir consulté la documentation, afficher chat de manière conditionnelle seulement
             si son nom est différent de "Ronron" et qu'il n'est pas nul et avec la notation &&
           </p>
+          { personnes ? (chat !=="Ronron" &&  personnes.name !== null): chat}
           <p>
             Afficher les propriétés de chaque personne à l'aide de map
             Pour chaque personne afficher son âge de manière conditionnelle en utilisant ? et :
@@ -103,10 +104,19 @@
               Si l'âge de la personne est supérieur à 65, alors afficher "Senior"
             </li>
             <li>
+              {personnes.age>65 ? personnes.age: "Senior"}
+            </li>
+
+            <li>
               Sinon, afficher l'âge de la personne
             </li>
           </ul>
           <p>Afficher tous les légumes dans une boucle map</p>
+          {panierDeCourses.map((courses, i) =>(
+                <p key={i}>
+                  {courses.name}
+                </p>
+              ))}
           <p>Pour chaque légume, afficher son magasin de manière conditionnelle avec && </p>
         </div>
       )
