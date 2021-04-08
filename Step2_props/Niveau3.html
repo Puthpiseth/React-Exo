@@ -33,6 +33,7 @@
                         En vous basant sur TitleComponent, créer un composant Card qui prendra en enfant un titre h2, un
                         paragraphe,
                         et un bouton.
+                       
                     </p>
                     <p>
                         Depuis votre composant Card, générer les enfants de ce composant via les props comme dans
@@ -67,12 +68,42 @@
                         <span>Nous sommes des children</span>
                         <span>De Title Component</span>
                     </TitleComponent>
+                    <Card>
+                        <h2>React est cool</h2>
+                        <button>remove</button>
+                    </Card>
+                    <Footer>
+                        <p>Je travaille à fond</p>
+                        <li>Moto</li>
+                        <li>Voiture</li>
+                    </Footer>
                     <Consigne/>
                 </div>
             )
         }
     }
 
+    class Card extends React.Component {
+        render() {
+            return (
+                <div>
+                    <h2>{this.props.children}</h2>
+                    <button>{this.props.button}</button>
+                </div>
+            )
+        }
+    }
+
+    class Footer extends React.Component {
+        render() {
+            return (
+                <div>    
+                    <p>{this.props.children}</p>
+                    <li>{this.props.children}</li>
+                </div>
+            )
+        }
+    }
     // Rendu dans le DOM
     ReactDOM.render(
         <Hello/>,
