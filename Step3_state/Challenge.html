@@ -40,6 +40,21 @@
         newAnimalType: "",
         newAnimalName: "",
       }
+      
+      this.handleChange = this.handleChange.bind(this);
+      this.handleNameChange = this.handleNameChange.bind(this);
+    }
+
+    handleChange(e) {
+      this.setState({
+        newAnimalType: e.target.value,
+      })
+    }
+
+    handeleNameChange(e) {
+      this.setState({
+        newAnimalName: e.target.value,
+      })
     }
 
     render() {
@@ -58,15 +73,15 @@
                 </li>
                 <li>
                     Créer un input texte qui permet de saisir la valeur du state newAnimalType. Quand sa valeur change, la valeur de newAnimalType est mise à jour.
-                    <div>
-                      <input type="text" valeur={this.state.animaux.newAnimalType} />
-                    </div>
+                    
+                      <input value={this.state.newAnimalType} onChange={this.handleChange}/>
+                    
                     </li>
                 <li>
                     Créer un autre input texte qui permet de saisir la valeur du state newAnimalName, avec le même fonctionnement
-                    <div>
-                      <input type="text" valeur={this.state.animaux.newAnimalName} />
-                    </div>
+                  
+                      <input value={this.state.newAnimalName} onChange={this.handleNameChange} />
+                    
                 </li>
                 <li>
                     Créer une méthode vide sauvegarderAnimal, et l'appeler depuis un bouton que vous créerez également
