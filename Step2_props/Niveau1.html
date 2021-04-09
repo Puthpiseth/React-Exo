@@ -27,28 +27,15 @@
               <p>
                 En vous basant sur les exemple TitleComponent et Consigne, créez votre propre component
                 PrimaryButton qui contiendra un bouton simple avec un texte de votre choix.
-                <div>
-                  <button>Primary</button>
-                </div>
+                
               </p>
               <p>Depuis la classe Hello, appeler ce nouveau composant en vous inspirant des exemples</p>
-                <div>
-                  <button>Secondary</button>
-                </div>
+                
               <p>Créer un nouveau composant TextField qui contiendra un input de type texte et un label de vos choix.</p>
-                <div>
-                  <label>Name</label>
-                  <div>
-                  <input type="text" placeholder="enter your name"/>
-                  </div>
-                </div>
+                
+    
               <p>Générer ce nouveau composant TextField depuis la classe Hello deux fois.</p>
-                <div>
-                  <input type="text" placeholder="enter your name"/>
-                  <div>
-                  <input type="password" placeholder="enter your password "/>
-                  </div>
-                </div>
+                
           </div>
         )
       }
@@ -62,6 +49,23 @@
     }
   }
 
+  class PrimaryButton extends React.Component {
+    render() {
+      return <button style={{color: "red"}}> clicked me</button>
+    }
+  }
+
+  class TextField extends React.Component {
+    render () {
+      return (
+        <label>
+          Texte
+          <input type="text" />
+        </label>
+      )
+    }
+  }
+
   // Création de composant en créant des classes
   class Hello extends React.Component {
 
@@ -70,6 +74,8 @@
         <div>
           <TitleComponent/>
           <Consigne/>
+          <PrimaryButton />
+          <TextField />
         </div>
       )
     }

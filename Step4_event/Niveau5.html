@@ -47,7 +47,17 @@
           }
         ],
       };
+
+      this.handleChange = this.handleChange.bind(this);
     }
+
+    handleChange(e) {
+      this.setState({
+        draftName: e.target.value
+      })
+    }
+
+  
 
     render() {
       return (
@@ -55,8 +65,15 @@
             <p>Je vous invite à lire ceci : <a href="https://www.robinwieruch.de/react-state-array-add-update-remove">Comment gérer les états avec les tableaux en React</a></p>
             <ul>
                 <li>Afficher la liste des légumes. Pour chaque légume, afficher son nom et son prix</li>
+                  {this.state.legumes.map((legume, i) =>(
+                <p key={i}>
+                    {legume.name}, {legume.prix}
+                </p>
+                  ))}
                 <li>Pour chaque légume, afficher un input de type texte qui prendra comme valeur sa draftName</li>
                 <li>créer un mécanisme qui permette de mettre à jour le draftName de la personne désignée. </li>
+                <p>{this.state.draftName} is cool</p>
+                <input type="text" value={this.state.draftName} onChange={this.handleChange} />
             </ul>
             <ul>
                 <li>Créer une méthode deleteVegetable, qui prend en paramètre un index de tableau, et qui supprime cet élément du tableau en mettant le state à jour</li>

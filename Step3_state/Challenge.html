@@ -37,24 +37,40 @@
             type: "orange"
           }
         ],
-        newAnimalType: "Y",
-        newAnimalName: "X",
+        newAnimalType: "",
+        newAnimalName: "",
       }
       
       this.handleChange = this.handleChange.bind(this);
-      this.handleNameChange = this.handleNameChange.bind(this);
     }
+
+    // handleChange(e) {
+    //   this.setState({
+    //     newAnimalType: e.target.value,
+    //   })
+    // }
+
+    // handeleChange(e) {
+    //   this.setState({
+    //     newAnimalName: e.target.value,
+    //   })
+    // }
 
     handleChange(e) {
-      this.setState({
-        newAnimalType: e.target.value,
-      })
+      const name = e.target.getAttribute('name');
+      const value = e.target.value;
+      this.setState({[name]: value});
     }
 
-    handeleNameChange(e) {
-      this.setState({
-        newAnimalName: e.target.value,
-      })
+    sauvegarderAnimal = (e) => {
+      const animal = {
+        name: this.state.newAnimalName,
+        type: this.state.newAnimalType
+      }
+
+      const animaux = [...this.state.animaux];
+      animaux.push(animal);
+      this.setState({animaux})
     }
 
     render() {
@@ -64,30 +80,28 @@
                 <li>
                     Afficher la liste des animaux dans une boucle map. Pour chaque animal, afficher son nom, et son type
                   {this.state.animaux.map((animal, i) => {
-                    return (
                     <li key={i}>
                       {animal.name}: {animal.type}
                     </li>
-                    )
                   })}
                 </li>
                 <li>
                     Créer un input texte qui permet de saisir la valeur du state newAnimalType. Quand sa valeur change, la valeur de newAnimalType est mise à jour.
-                    
-                      <input value={this.state.newAnimalType} onChange={this.handleChange}/>
-                      <p>{this.state.newAnimalType}</p>
+                      
+                      <input name="newAnimalName" value={this.state.newAnimalName} onChange={this.handleChange} />
+                      <input name="newAnimalType" value={this.state.newAnimalType} onChange={this.handleChange}/>
+                      <button onClick={this.sauvegarderAnimal}>Valider</button>
                     
                     </li>
                 <li>
                     Créer un autre input texte qui permet de saisir la valeur du state newAnimalName, avec le même fonctionnement
-                  
-                      <input value={this.state.newAnimalName} onChange={this.handleNameChange} />
-                      <p>{this.state.newAnimalName}</p>
-                    
+
                 </li>
+                
                 <li>
                     Créer une méthode vide sauvegarderAnimal, et l'appeler depuis un bouton que vous créerez également
                 </li>
+                
                 <li>
                     Remplir la méthode sauvegarderAnimal tel que les valeurs newAnimalType et newAnimalName sont sauvegardées dans un nouvel animal,
 que la méthode mette le tableau des animaux à jour en ajoutant le nouvel animal à la fin
