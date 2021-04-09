@@ -24,7 +24,7 @@
       super(props);
       this.state = {
         counter: 0,
-        text: "Je ne peux pas je suis à Nagano",
+        text: "",
         
       };
 
@@ -50,15 +50,15 @@
                 <p>Remplir la fonction decrementCounter</p>
                 <p>Lier la fonction decrementCounter dans le constructor comme pour incrementCounter</p>
                 <p>Créer un nouveau bouton "Retirer -1" qui va déclencher une fonction decrementCounter</p>
-                <h2>Compteur: {this.state.counter}</h2>
                 <button onClick={this.decrementCounter}>Retirer -1</button>
             </div>
             <div>
                 <p>Remplir la fonction remplacerParBaba</p>
                 <p>Lier la fonction remplacerParBaba dans le constructor </p>
                 <p>Créer un nouveau bouton Remplacer qui va déclencher une fonction remplacerParBaba</p>
-                <h2>{this.state.text}</h2>
                 <button onClick={this.remplacerParBaba}>Replacer</button> 
+                <h2>{this.state.text}</h2>
+                
             </div>
         </div>
       )
@@ -87,7 +87,7 @@
      */
     remplacerParBaba() {
       this.setState({
-        text: this.state.text,
+        text: this.state.text + "ba",
       })
     }
   }
