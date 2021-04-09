@@ -28,7 +28,31 @@
                 notes: [1, 10, 15, 19, 20],
                 isDisplayed: false,
             };
+
+            this.afficheTexte = this.afficheTexte.bind(this);
+            this.changeImageDisplay = this.changeImageDisplay.bind(this);
+            
         }
+
+        afficheTexte(e) {
+            this.setState({
+                animal: e.target.value
+            })
+        }
+
+        removeLastElement(e) {
+            this.setState({
+                notes: e.targe.value
+            })
+        }
+        
+        changeImageDisplay(e) {
+            this.setState({
+                isDisplayed: !this.state.isDisplayed
+            })
+        }
+            
+        
 
         render() {
             return (
@@ -37,11 +61,14 @@
                         <p>Créer une méthode afficheTexte qui prend en paramètre une chaîne de caractère</p>
                         <p>Créer un bouton qui envoie la valeur de state de animal en paramètre, et qui appelle la
                             méthode afficheTexte</p>
+                        <button onClick={this.afficheTexte}>Affiche Texte</button>
+                        <p>{this.state.animal}</p>
                     </div>
                     <div>
                         <p>Créer un bouton qui va retirer le dernier élément de la liste des notes</p>
                         <p>Il faut que le bouton appelle une méthode removeLastElement, qui va retirer le dernier
                             élément des notes.</p>
+                        <button onClick={this.removeLastElement}>retirer</button>
                         <p>
                             <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/pop">
                                 Documentation sur l'utilisation de array.pop
@@ -51,10 +78,11 @@
                     </div>
                     <div>
                         <p>Créer un bouton qui va afficher ou non cette image en changeant la valeur de isDisplayed </p>
+                        <button onClick={this.changeImageDisplay}>changeImageDisplay</button>
                         <p>Il faut que le bouton appelle une méthode changeImageDisplay, qui va changer le state de
                             isDisplayed</p>
                         <img
-                            src="https://lh3.googleusercontent.com/proxy/6ZzAsy8-EM4v_htV-_LZc1C8_aek5qC3Vq7xvCaWF3tdrIIfe8p0mR9d6vh3bzxf4YmSu2g1-imJlOqJlBzyH1QZFBLvErNXBw" alt="rbnb"/>
+                            src={this.state.isDisplayed ? "https://media.inmobalia.com/imgV1/B98Le8~d7M9k3DegigWkzHXQlgzMFGqGJJp6ZRUcpX033lqadFBp2i4GGW4X2J1jIJ9Pwc6GsJX5cPSaC8Y5L~JfyHds9HljFKbIihOkX3Hq5C9d69~GwVQAUJ3F~nk7fQh0UAqAYi7r3tGF4MzRyAahwYUUdBGcpIv62graeAG8w~8wUqYBXzLX2fvWEnUTQLuqRdONy5WACPmyO8uqKAHjHemV6z~5jgt8AQg7cew~6RB3PVf3qGWecjwBIeE1gPVvPLV3hrMoCZbpm9URzDnYisb5CD3BHYx3qe9hkFGi2MpOpzK2DLeQMSnujni41g--.jpg": ""} alt="rbnb"/>
                     </div>
                 </div>
             )

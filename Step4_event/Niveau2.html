@@ -24,12 +24,28 @@
             super();
 
             this.state = {
-                currentText: "Pop",
+                currentText: "Tu es de la guimauve",
+                nouveauText: "c'est une belle journée pour sauver des vies",
                 personne: {
                     name: "LouisFilou",
                     age: 51
                 },
             };
+            this.afficher = this.afficher.bind(this);
+            this.changeText = this.changeText.bind(this);
+        }
+
+        afficher(e) {
+            this.setState( {
+                currentText: e.target.value
+            })
+            console.log(text);
+        }
+
+        changeText(e) {
+            this.setState({
+                nouveauText: e.target.value
+            })
         }
 
         render() {
@@ -39,6 +55,7 @@
                         <li>Créer une méthode afficheAge qui affiche l'âge dans la console de la personne contenue dans
                             le state
                         </li>
+                        <p>{this.state.personne.age}</p>
                         <li>Créer un bouton qui appelle cette méthode lorsque l'on clique dessus.</li>
                     </ul>
                     <a href="https://fr.reactjs.org/docs/handling-events.html#passing-arguments-to-event-handlers">Documentation
@@ -49,6 +66,7 @@
                         <li>Créer un bouton qui appelle la méthode "afficher" en lui envoyant comme paramètre "Tu es de
                             la guimauve"
                         </li>
+                        <button onClick={this.afficher}>Affiche</button>
                     </ul>
 
                     <p>Ici on affiche le contenu de currentText : {this.state.currentText}</p>
@@ -56,9 +74,12 @@
                         <li>Créer une méthode changeText qui reçoit un texte en paramètre, et qui va le mettre dans le
                             state currentText
                         </li>
+
                         <li>Créer un bouton qui appelle la méthode changeText, et lui passer en paramètre la chaîne de
                             caractères suivante : "C'est une belle journée pour sauver des vies"
                         </li>
+                        <button onClick={this.changeText}>Change Text</button>
+                        <p>Ici on affiche le contenu de changeText: {this.state.nouveauText}</p>
                     </ul>
                 </div>
             )
@@ -68,9 +89,9 @@
          * Affiche le texte reçu en paramètre
          * @param text String | Number
          */
-        afficher(text) {
-            console.log(text);
-        }
+        
+
+        
     }
 
     // Rendu dans le DOM

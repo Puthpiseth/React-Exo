@@ -11,6 +11,7 @@
 
     <!-- babel => compilation du JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
 </head>
 
 <body>
@@ -36,20 +37,25 @@
                             déclencher une alerte "salut"</p>
                         <p>Créer un nouveau bouton "Salut" qui va appeler cette méthode salut lorsque l'on clique
                             dessus</p>
+                        <button onClick={this.salut}>Salut</button>
                     </div>
                     <div>
                         <ul>
                             <li>Créer un bouton "salut2" qui va aussi appeler la méthode salut lorsque l'on clique
                                 dessus
                             </li>
+                            <button onClick={this.salut2}>Salut2</button>
                             <li>Créer un span "salut3" qui va appeler la méthode salut lorsque l'on clique dessus. (Oui,
                                 c'est aussi possible de mettre un attribut onClick sur un span. Essayez !)
                             </li>
+                            <span style={{cursor: "pointer", color:"red"}} onClick={this.salut}>Salut</span>
                             <li>Créer un input de type texte qui va appeler la méthode salut lorsque sa valeur change
                             </li>
+                            <input type="text" />
                             <li>Créer un input de type checkbox qui va également appeler la méthode salut lorsque son
                                 état change
                             </li>
+                            <input type="checkbox" />
                         </ul>
                     </div>
                 </div>
@@ -69,6 +75,10 @@
          */
         salut() {
             alert("Salut");
+        }
+
+        salut2(){
+            alert("Salut2");
         }
     }
 

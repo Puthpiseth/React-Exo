@@ -37,8 +37,8 @@
             type: "orange"
           }
         ],
-        newAnimalType: "",
-        newAnimalName: "",
+        newAnimalType: "Y",
+        newAnimalName: "X",
       }
       
       this.handleChange = this.handleChange.bind(this);
@@ -75,12 +75,14 @@
                     Créer un input texte qui permet de saisir la valeur du state newAnimalType. Quand sa valeur change, la valeur de newAnimalType est mise à jour.
                     
                       <input value={this.state.newAnimalType} onChange={this.handleChange}/>
+                      <p>{this.state.newAnimalType}</p>
                     
                     </li>
                 <li>
                     Créer un autre input texte qui permet de saisir la valeur du state newAnimalName, avec le même fonctionnement
                   
                       <input value={this.state.newAnimalName} onChange={this.handleNameChange} />
+                      <p>{this.state.newAnimalName}</p>
                     
                 </li>
                 <li>
