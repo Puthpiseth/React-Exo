@@ -51,11 +51,11 @@
                             <span style={{cursor: "pointer", color:"red"}} onClick={this.salut}>Salut</span>
                             <li>Créer un input de type texte qui va appeler la méthode salut lorsque sa valeur change
                             </li>
-                            <input type="text" />
+                            <input type="text" onChange={this.salut}/>
                             <li>Créer un input de type checkbox qui va également appeler la méthode salut lorsque son
                                 état change
                             </li>
-                            <input type="checkbox" />
+                            <input type="checkbox" onChange={this.salut}/>
                         </ul>
                     </div>
                 </div>
