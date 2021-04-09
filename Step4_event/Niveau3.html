@@ -29,24 +29,29 @@
                 isDisplayed: false,
             };
 
-            this.afficheTexte = this.afficheTexte.bind(this);
+            this.removeLastElement= this.removeLastElement.bind(this);
             this.changeImageDisplay = this.changeImageDisplay.bind(this);
             
         }
 
-        afficheTexte(e) {
-            this.setState({
-                animal: e.target.value
-            })
+         /**
+         * Cette méthode affiche un texte reçu en paramètre
+         * @param texte String | Number la donnée à afficher
+         */
+
+        afficheTexte(texte) {
+            console.log(texte);
         }
 
-        removeLastElement(e) {
+        removeLastElement() {
+            const notes = this.state.notes;
+            notes.pop();
             this.setState({
-                notes: e.targe.value
+                notes
             })
         }
         
-        changeImageDisplay(e) {
+        changeImageDisplay() {
             this.setState({
                 isDisplayed: !this.state.isDisplayed
             })
@@ -61,24 +66,25 @@
                         <p>Créer une méthode afficheTexte qui prend en paramètre une chaîne de caractère</p>
                         <p>Créer un bouton qui envoie la valeur de state de animal en paramètre, et qui appelle la
                             méthode afficheTexte</p>
-                        <button onClick={this.afficheTexte}>Affiche Texte</button>
-                        <p>{this.state.animal}</p>
+                        <button onClick={() => this.afficheTexte(this.state.animal)}>Envoyer l'animal</button>
+                       
                     </div>
                     <div>
                         <p>Créer un bouton qui va retirer le dernier élément de la liste des notes</p>
                         <p>Il faut que le bouton appelle une méthode removeLastElement, qui va retirer le dernier
                             élément des notes.</p>
-                        <button onClick={this.removeLastElement}>retirer</button>
+                        <button onClick={this.removeLastElement}>Retirer la dernière note</button>
+                        {this.state.notes.map((note, index) => <p key={index}>{note}</p>)}
                         <p>
                             <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/pop">
                                 Documentation sur l'utilisation de array.pop
                             </a>
                         </p>
-                        {this.state.notes.map((note, index) => <p key={index}>{note}</p>)}
+                        
                     </div>
                     <div>
                         <p>Créer un bouton qui va afficher ou non cette image en changeant la valeur de isDisplayed </p>
-                        <button onClick={this.changeImageDisplay}>changeImageDisplay</button>
+                        <button onClick={this.changeImageDisplay}>Afficher Image</button>
                         <p>Il faut que le bouton appelle une méthode changeImageDisplay, qui va changer le state de
                             isDisplayed</p>
                         <img
