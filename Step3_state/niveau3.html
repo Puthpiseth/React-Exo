@@ -32,6 +32,18 @@
         this.handleTextChange = this.handleTextChange.bind(this);
     }
 
+    handleChange(event) {
+      this.setState({
+        texteExemple: event.target.value,
+      })
+    }
+
+    handleTextChange(event) {
+      this.setState({
+        texteChange: event.target.value,
+      })
+    }
+
     render() {
       return (
         <div>
@@ -53,7 +65,7 @@
               sera appelée avec le déclencheur onChange de l'input et fera appel a la method setState pour mettre a jours le state de text
             </p>
               <div>
-                <input value={this.state.texteChange} onChange={this.handleTextChange}/>
+                <input type="text" value={this.state.texteChange} onChange={this.handleTextChange}/>
                 <p>Afficher la valeur de text ici : {this.state.texteChange}</p>
               </div>
             
@@ -64,17 +76,6 @@
       )
     }
 
-    handleChange(event) {
-      this.setState({
-        texteExemple: event.target.value,
-      })
-    }
-
-    handleTextChange(event) {
-      this.setState({
-        texteChange: event.target.value,
-      })
-    }
   }
 
   // Rendu dans le DOM
