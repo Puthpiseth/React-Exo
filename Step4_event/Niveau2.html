@@ -24,74 +24,84 @@
             super();
 
             this.state = {
-                currentText: "Tu es de la guimauve",
-                nouveauText: "c'est une belle journée pour sauver des vies",
+                currentText: "Pop",
                 personne: {
                     name: "LouisFilou",
                     age: 51
                 },
             };
-            this.afficher = this.afficher.bind(this);
+
+            this.afficheAge = this.afficheAge.bind(this);
+            this.appelleAfficheHello = this.appelleAfficheHello.bind(this);
             this.changeText = this.changeText.bind(this);
-        }
-
-        afficher(e) {
-            this.setState( {
-                currentText: e.target.value
-            })
-            console.log(text);
-        }
-
-        changeText(e) {
-            this.setState({
-                nouveauText: e.target.value
-            })
         }
 
         render() {
             return (
                 <div>
+                    <a href="https://stackoverflow.com/questions/29810914/react-js-onclick-cant-pass-value-to-method">Documentation
+                        pour envoyer des paramètres à une méthode</a>
                     <ul>
                         <li>Créer une méthode afficheAge qui affiche l'âge dans la console de la personne contenue dans
                             le state
                         </li>
-                        <p>{this.state.personne.age}</p>
                         <li>Créer un bouton qui appelle cette méthode lorsque l'on clique dessus.</li>
+                        <button onClick={this.afficheAge}>Affiche Age</button>
                     </ul>
-                    <a href="https://fr.reactjs.org/docs/handling-events.html#passing-arguments-to-event-handlers">Documentation
-                        pour envoyer des paramètres à une méthode</a>
                     <p>Voici un bouton qui envoie comme paramètre "hello" à la méthode "afficher"</p>
                     <button onClick={() => this.afficher("hello")}>Dire Hello</button>
                     <ul>
                         <li>Créer un bouton qui appelle la méthode "afficher" en lui envoyant comme paramètre "Tu es de
                             la guimauve"
                         </li>
-                        <button onClick={this.afficher}>Affiche</button>
                     </ul>
+
+                    <button onClick={() => this.afficher("Tu es de la guimauve")}>Tu es de la guimauve</button>
 
                     <p>Ici on affiche le contenu de currentText : {this.state.currentText}</p>
                     <ul>
                         <li>Créer une méthode changeText qui reçoit un texte en paramètre, et qui va le mettre dans le
                             state currentText
                         </li>
-
                         <li>Créer un bouton qui appelle la méthode changeText, et lui passer en paramètre la chaîne de
                             caractères suivante : "C'est une belle journée pour sauver des vies"
                         </li>
-                        <button onClick={this.changeText}>Change Text</button>
-                        <p>Ici on affiche le contenu de changeText: {this.state.nouveauText}</p>
                     </ul>
+                    <button onClick={() => this.changeText("C'est une belle journée pour sauver des vies")}>Change texte </button>
                 </div>
             )
+        }
+
+        /**
+         * Mettre à jour le state du texte avec ce qu'elle reçoit en paramètre
+         */
+        changeText(text) {
+            this.setState({
+                currentText: text
+            })
+        }
+
+        /**
+         * Appeler affiche en envoyant le paramètre "Hello"
+         */
+        appelleAfficheHello() {
+            this.afficher("Hello");
+        }
+
+        /**
+         * Afficher l'âge de la personne du state
+         */
+        afficheAge() {
+            console.log(this.state.personne.age);
         }
 
         /**
          * Affiche le texte reçu en paramètre
          * @param text String | Number
          */
-        
-
-        
+        afficher(text) {
+            console.log(text);
+        }
     }
 
     // Rendu dans le DOM
